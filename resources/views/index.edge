@@ -1,0 +1,21 @@
+@layout('layouts.main')
+
+@section('title')
+    Jobshanawa
+@endsection
+
+@section('content')
+
+<div class="container mx-auto mt-12">
+    <h1 class="font-bold mb-4 text-xl uppercase text-white"> All Jobs</h1>
+    @each(job in jobs)
+    <div class="bg-gray-50 rounded-md shadow-md m-2">
+        <div class="job-info p-3">
+            <h3 class="font-bold"> {{job.title}}</h3>
+            <p> {{job.job_description}}  </p>
+        </div>
+    </div>
+    @endeach
+</div>
+
+@endsection

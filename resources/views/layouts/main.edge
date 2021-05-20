@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    {{ style('style') }}
+
+    @!section('extraCss')
+
+    <title>  
+        @!section('title')  
+    </title>
+
+</head>
+
+<body class="bg-gray-900">
+    <header>
+        <nav class="container mx-auto flex justify-end mr-8 mt-4">
+            
+            <ul class="text-white font-bold flex justify-around lg:w-2/3 sm:w-1/2 p-4">
+                @loggedIn
+                <li class="text-blue-200"> {{ auth.user.email }}</li>
+                <li><a href="/image" class="hover:text-gray-300">Image Uploader</a> </li>
+                <li><a href="/parser" class="hover:text-gray-300">Parser</a> </li>
+                <li><a href="/coord" class="hover:text-gray-300">Coordinates</a> </li>
+                <li><a href="/logout" class="mt-4 hover:text-gray-300 bg-red-700 p-2 px-4 uppercase rounded-sm">Sign Out</a></li>       
+                @endloggedIn
+            </ul>
+          </nav>
+    </header>
+
+    <div class="container mx-auto mt-12">
+        @!section('content')
+    </div>
+
+</body>
+
+
+</html>

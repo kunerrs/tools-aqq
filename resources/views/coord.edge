@@ -1,0 +1,40 @@
+@layout('layouts.main')
+
+@section('title')
+    Aqqire Tools | Geocode
+@endsection
+
+@section('content')
+<div class="grid place-content-center min-h-sceen"> 
+    <div class="main container mt-4 w-full min-h-screen py-4 px-12"> 
+        <h1 class="text-2xl font-bold text-center text-gray-100 uppercase leading-relaxed tracking-wider"> Get Lat & Long </h1>
+        <!-- Start Form  -->
+        <form action="{{ route('CoordController.locate') }}" id="addressForm" method="POST" class="container w-96 mx-auto grid place-content-center px-4">
+            <input class="bg-gray-50 p-2 mt-6 mx-auto w-96" type="text" id="addressInput" name="address" placeholder="e.g: 1111 Soda Springs Road, Soda Springs, California " required>
+                <div class="block mt-6 text-center">
+                    {{--  <button class="inline-block p-1 px-4 mr-4 bg-green-100 uppercase font-bold hover:bg-green-300 "> Submit </button>  --}}
+                    <input type="submit" value="Submit" class="inline-block mr-4  p-1 px-4 bg-green-100 uppercase font-bold hover:bg-green-300"> 
+                    <input type="reset" value="clear" class="inline-block  p-1 px-4 bg-red-100 uppercase font-bold hover:bg-red-300">
+                </div>
+        </form>
+          <!-- End Form  -->
+
+        <div class="bg-gray-50 shadow-sm h-auto w-full p-6 mt-20">
+            <div class="coords text-center select-text text-sm py-2 whitespace-nowrap">
+                <!-- Output Goes Here -->
+                
+                @if(data)
+                    <p> {{ data }} </p>
+                @else
+                    <p> latitude, longitude </p>
+                @endif
+
+
+            </div>
+        </div>
+        <span class="text-sm text-white text-center block mt-4 tracking-wider"> order: lat, lng </span>
+    </div>
+
+@endsection
+
+@layout('layouts.footer')

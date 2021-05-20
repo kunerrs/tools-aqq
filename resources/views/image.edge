@@ -1,0 +1,30 @@
+@layout('layouts.main')
+
+@section('title')
+    Aqqire Tools | Image Uploader
+@endsection
+
+@section('content')
+<div class="grid place-content-center min-h-sceen"> 
+    <div class="main container mt-4 w-max min-h-screen p-4"> 
+        <h1 class="text-2xl font-bold text-center text-gray-100 uppercase leading-relaxed tracking-wider"> Image Uploader </h1>
+        <form id="imageForm" method="POST">
+            <input class="bg-gray-50 p-1 mt-6" type="file" accept="image/*" id="imageValue" name="image" required multiple>
+                <div class="block mt-6 text-center">
+                    {{--  <button type="button" onclick="submitImage()" class="inline-block mr-4  p-1 px-4 bg-green-100 uppercase font-bold hover:bg-green-300">Submit</button>  --}}
+                    <input type="submit" value="Submit" class="inline-block mr-4  p-1 px-4 bg-green-100 uppercase font-bold hover:bg-green-300"> 
+                    <button type="reset" class="inline-block  p-1 px-4 bg-red-100 uppercase font-bold hover:bg-red-300">Clear</button>
+                </div>
+        </form>
+          
+        <div class="bg-gray-50 shadow-sm h-auto w-full p-4 mt-20">
+            <div class="images text-center select-all text-sm py-2 whitespace-nowrap">
+                <!-- Output Goes Here -->
+            </div>
+        </div>
+        <span class="text-sm text-white text-center block mt-4 tracking-wider"> <b> Note:</b> Paste the output into the <br/>Spreadsheet (property_id column)</span>
+    </div>
+</div>
+@endsection
+
+@layout('layouts.footer')
