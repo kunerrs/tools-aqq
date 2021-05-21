@@ -19,7 +19,7 @@ const Route = use('Route')
 
 Route.on('/').render('auth.login')
 // Route.post('/login', 'AuthController.login')
-Route.post('/users', 'UserController.store').validator('CreateUser')
+Route.post('/users', 'UserController.store').validator('CreateUser') 
 
 Route.on('/signup').render('auth.signup')
 Route.on('/login').render('auth.login')
@@ -28,7 +28,7 @@ Route.get('/image', 'UploadImageController.index').middleware('auth')
 Route.get('/parser', 'ParserController.index').middleware('auth')
 Route.get('/coord', 'CoordController.index').middleware('auth')
 
-Route.post('/locate', 'CoordController.locate')
+Route.post('/locate', 'CoordController.locate').middleware('auth')
 Route.post('/upload-image', 'UploadImageController.store')
 Route.post('/login', 'UserController.login').validator('LoginUser')
 

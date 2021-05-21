@@ -11,8 +11,8 @@ Login
 
     <div class="bg-gray-100 rounded-md w-1/3 h-2/3 p-2"> 
             @if(flashMessage('loginError'))
-            <span class="block mt-2 bg-red-100 p-2 mt-2 mb-2 font-bold rounded-md text-center"> {{flashMessage('loginError')}} </span>
-        @endif  
+                <span class="block mt-2 bg-red-100 p-2 mt-2 mb-2 font-bold rounded-md text-center"> {{flashMessage('loginError')}} </span>
+            @endif  
         <form action="{{ route('UserController.login') }}" method="POST" class="flex flex-col mt-4 justify-between p-4">
             {{ csrfField() }}
             
